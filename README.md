@@ -19,9 +19,12 @@ Dependencies--
 -- protoc object_detection/protos/*.proto --python_out=.
 
 5) Set MODEL_BASE in detector_app.py to the path of the object detection api ../models-master/research
+
 6)
 -- cd ~/realtimeCV/obj_detect_multi
+
 -- export FLASK_APP=detector.app
+
 -- flask run
 
 
