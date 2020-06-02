@@ -1,11 +1,15 @@
 # flask_objectdetection_app
 
 Dependencies--
+
 1) Flask
+ 
  --apt-get update
+ 
  --pip install Flask==0.12.2 WTForms==2.1 Flask_WTF==0.14.2 Werkzeug==0.12.2
 
 2) tensorflow
+
 3) OpenCV
 
 
