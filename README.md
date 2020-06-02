@@ -11,8 +11,11 @@ Dependencies--
 
 4) Installtion Process
 -- apt-get update
+
 -- apt-get install -y protobuf-compiler python-pil python-lxml python-pip python-dev git
+
 -- cd models-master/research
+
 -- protoc object_detection/protos/*.proto --python_out=.
 
 5) Set MODEL_BASE in detector_app.py to the path of the object detection api ../models-master/research
