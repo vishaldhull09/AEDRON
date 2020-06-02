@@ -18,13 +18,36 @@ Dependencies--
 
 -- apt-get install -y protobuf-compiler python-pil python-lxml python-pip python-dev git
 
+--git clone https://github.com/tensorflow/models
+
 -- cd models-master/research
 
 -- protoc object_detection/protos/*.proto --python_out=.
 
 5) Set MODEL_BASE in detector_app.py to the path of the object detection api ../models-master/research
 
-6)
+
+## Download the pretrained model binaries
+
+Models available at https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
+
+There are five pretrained models that can be used by the application.
+ They have diffrent characteristics in terms of accuracy and speed.
+ You can change the model used by the application by setting
+ the PATH_TO_CKPT to point the frozen weights of the required model.
+
+You specify one of the following models.
+
+- ssd_mobilenet_v1_coco_11_06_2017
+- ssd_inception_v2_coco_11_06_2017
+- rfcn_resnet101_coco_11_06_2017
+- faster_rcnn_resnet101_coco_11_06_2017
+- faster_rcnn_inception_resnet_v2_atrous_coco_11_06_2017
+
+
+
+
+7)
 -- cd ~/realtimeCV/obj_detect_multi
 
 -- export FLASK_APP=detector.app
