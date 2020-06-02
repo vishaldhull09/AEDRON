@@ -47,7 +47,8 @@ You specify one of the following models.
 
 
 
-7)
+## After setting the paths run this on terminal
+
 -- cd ~/realtimeCV/obj_detect_multi
 
 -- export FLASK_APP=detector.app
