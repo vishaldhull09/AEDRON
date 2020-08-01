@@ -1,0 +1,13 @@
+<div class='model'>
+    <h2 class='modelName'>{{model_name}} ({{result['time']}} s)</h2>
+    <h4 class="label">original</h4>
+    <div class="result-content">
+        <div class="detectedImg">
+            <img src="{{ result['detections']['original'] }}">
+        </div>
+        <div class="classes">
+            {% for category, image in result['detections'].items() %}
+            <a data-index={{outer_loop.index0}} href="javascript:void(0);" onclick="ChangePhoto(event, '{{category}}', '{{ image }}');">{{category}}</a> {% endfor %}
+        </div>
+    </div>
+</div>
