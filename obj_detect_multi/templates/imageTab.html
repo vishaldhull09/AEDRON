@@ -1,0 +1,46 @@
+
+<div id='image' class='tab-content'>
+    <h2>Image - Object Detection</h2>
+    <div class="tab-body">
+        <form id="imgupload" method=post action={{ url_for( 'imgproc') }} enctype="multipart/form-data">
+            <div class="drop">
+                <img class='uploadIcon' src="/static/drop1.svg" />
+                <h1>Choose file or Drop here</h1>
+                <output class="list">
+                <img style="opacity: 0;" id='dropImage' class='thumbnail'/>
+            </output> {{ photo_form.input_photo | safe }} {% if photo_form.input_photo.errors %}
+                <ul class=errors>
+                    {% for error in photo_form.input_photo.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="selection">
+                <select name='model'>
+                {%for model in models%}
+                <option>{{model}}</option>
+                {%endfor%}
+                </select>
+                <!-- <div>
+                    <select name='execution'>
+                    <option> Normal</option>
+                    <option> Multi-Threading</option>
+                    <option> Multi-Processing</option>
+                </select>
+                </div> -->
+                <div>
+                    <button id='submitImg' class='disabled' onclick="Submit('imgupload');">Detect</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    {% if results|length > 0 %}
+    <hr>
+    <div id="imgResult">
+        <h1 class='heading'>Results ({{total_time}} s)</h1>
+        {%for model_name, result in results.items()%} {% set outer_loop = loop %} {%include 'model.html'%} {%endfor%}
+    </div>
+    {% endif %}
+</div>
