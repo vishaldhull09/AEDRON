@@ -2,40 +2,60 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script type="text/javascript" src="{{ url_for('static', filename='script.js')}}"></script>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-  <div class="card">
-    <div class="card-header text-left display-4 p-3 mb-2 bg-dark text-white">
-      Video Classification
+    <header>
+        <h1>Detection and Classification</h1>
+    </header>
+    <div class="wrapper">
+        <div class="tabs">
+            <button data-tab="image" onclick="openTab(event)">
+                <img class='tabIcon' src="/static/image.png">
+                Image
+            </button>
+            <button class="active" data-tab="video" onclick="openTab(event)">
+                <img class='tabIcon' src="/static/video.png">
+                Video
+            </button>
+           <!-- <button data-tab="realtime" onclick="openTab(event)">
+                <img class='tabIcon' src="/static/realtime.png">
+                Realtime
+            </button>
+            <button data-tab="voice" onclick="openTab(event)">
+                <img class='tabIcon' src="/static/voice2.png">
+                Voice
+            </button>-->
+        </div>
+        <div class="content">
+            {%include 'imageTab.html'%} {%include 'videoTab.html'%}
+        </div>
+
+
+
     </div>
-    <div class="card-body">
-      <div class="media">
-        <img src="{{ url_for('vidpros')}}" class="img-thumbnail">
-      </div>
-      
-      <button type="button" class="btn btn-secondary" onclick="b_nav();">Upload another</button>
-    </div>
-    <div class="card-footer text-muted">
-      Computer Vision and Deep Learning
-      <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item"><a class="btn btn-bd-yellow" href="https://www.tensorflow.org/">TensorFlow</a><li>
-        <li class="nav-item"><a class="btn btn-bd-yellow" href="https://github.com/tensorflow/models/tree/master/research/object_detection">TensorFlow Object Detection API</a></li>
-        <li class="nav-item"><a class="btn btn-bd-blue" href="https://github.com/anoopjeerige/realtimeCV">GitHub</a></li>
-      </ul>
-    </div>
-  </div>
+    <script src="/static/drop.js"></script>
+    <script src="/static/script.js"></script>
 </body>
+<script>
+    const ul = document.querySelector('#videoResult .classes ul');
+
+    fetch('http://127.0.0.1:5000/temp')
+        .then(response => {
+            response.json().then(data => {
+                data.forEach(label => {
+                        const li = document.createElement('li');
+                        li.textContent = label;
+                        ul.appendChild(li);
+                    })
+                    // console.log(data);
+                    // p.innerHTML = data.join(', ');
+            })
+        })
+</script>
 
 </html>
