@@ -55,4 +55,8 @@ You specify one of the following models.
 
 -- flask run
 
-
+<h1> Some results and application photos </h1 > 
+<p align="center">
+  <img src="WhatsApp Image 2020-10-14 at 9.46.39 PM(1).jpeg" width="350" title="hover text">
+  <img src="WhatsApp Image 2020-10-14 at 9.46.39 PM(3).jpeg" width="350" alt="accessibility text">
+</p>
