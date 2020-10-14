@@ -60,3 +60,7 @@ You specify one of the following models.
   <img src="WhatsApp Image 2020-10-14 at 9.46.39 PM(1).jpeg" width="350" title="hover text">
   <img src="WhatsApp Image 2020-10-14 at 9.46.39 PM(3).jpeg" width="350" alt="accessibility text">
 </p>
+<p align="center">
+  <img src="index(3).png" width="350" title="hover text">
+  <img src="individualImage 2.png" width="350" alt="accessibility text">
+</p>
